@@ -13,10 +13,13 @@
             <setting name="TXCKSEL" option="RB2"/>
             <setting name="package" option="PDIP18"/>
             <setting name="sorting" option="true"/>
-            <resource customName="channel_AN0" digital="false" direction="INPUT" function="AN0" module="ADC" name="RA0" start="false" type="pin" wpu="false"/>
-            <resource customName="channel_AN1" digital="false" direction="INPUT" function="AN1" module="ADC" name="RA1" start="false" type="pin" wpu="false"/>
-            <file checksum="1447594021" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="1780843922" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <resource customName="AN" digital="false" direction="INPUT" function="AN0" module="ADC" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB0" digital="true" direction="OUTPUT" function="RB0" ioc="0" module="GPIO" name="RB0" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB1" digital="true" direction="OUTPUT" function="RB1" ioc="0" module="GPIO" name="RB1" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB2" digital="true" direction="OUTPUT" function="RB2" ioc="0" module="GPIO" name="RB2" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB3" digital="true" direction="OUTPUT" function="RB3" ioc="0" module="GPIO" name="RB3" start="false" type="pin" wpu="false"/>
+            <file checksum="1087670266" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="3665284361" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="" name="Initialize">
@@ -69,10 +72,15 @@
                 <setting name="ADRESH" option="0x0" register="ADRESH"/>
             </initializer>
             <setting name="ADI" option="false"/>
-            <resource customName="channel_AN0" function="AN0" name="RA0" type="pin"/>
-            <resource customName="channel_AN1" function="AN1" name="RA1" type="pin"/>
+            <resource customName="AN" function="AN0" name="RA0" type="pin"/>
             <file checksum="1721234122" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
-            <file checksum="1284466382" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+            <file checksum="3929365765" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+        </module>
+        <module generated="true" mode="GPIO" name="GPIO" order="1" reloadPin="manual" type="GPIO">
+            <resource customName="IO_RB0" digital="true" direction="OUTPUT" function="RB0" ioc="0" module="GPIO" name="RB0" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB1" digital="true" direction="OUTPUT" function="RB1" ioc="0" module="GPIO" name="RB1" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB2" digital="true" direction="OUTPUT" function="RB2" ioc="0" module="GPIO" name="RB2" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RB3" digital="true" direction="OUTPUT" function="RB3" ioc="0" module="GPIO" name="RB3" start="false" type="pin" wpu="false"/>
         </module>
     </modules>
 </configuration>

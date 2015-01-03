@@ -55,8 +55,8 @@ void PIN_MANAGER_Initialize(void)
     WPUA = 0x00;
 
     LATB = 0x00;
-    TRISB = 0xFF;
-    ANSELB = 0xFE;
+    TRISB = 0xF0;
+    ANSELB = 0xF0;
     WPUB = 0x00;
 
     OPTION_REGbits.nWPUEN = 0x01;

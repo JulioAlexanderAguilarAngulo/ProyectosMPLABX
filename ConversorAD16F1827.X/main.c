@@ -46,6 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "mcc_generated_files/mcc.h"
 
+int conversion;
 /*
                          Main application
  */
@@ -71,6 +72,26 @@ void main(void)
 
     while (1)
     {
+        ADC_Initialize();
+        ADC_StartConversion(AN);
+
+        while(!ADC_IsConversionDone());
+        conversion = ADC_GetConversionResult();
+
+        if(conversion < 171){
+            PORTB = 0;
+        }else if(conversion < 342){
+            PORTB = 1;
+        }else if(conversion < 513){
+            PORTB = 2;
+        }else if(conversion < 684){
+            PORTB = 3;
+        }else if(conversion < 855){
+            PORTB = 4;
+        }else if(conversion < 1024){
+            PORTB = 5;
+        }
+
         // Add your application code
     }
 }

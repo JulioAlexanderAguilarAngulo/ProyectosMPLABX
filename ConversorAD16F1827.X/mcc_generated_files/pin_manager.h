@@ -59,34 +59,85 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set channel_AN0 aliases
-#define channel_AN0_TRIS               TRISA0
-#define channel_AN0_LAT                LATA0
-#define channel_AN0_PORT               RA0
-#define channel_AN0_ANS                ANSA0
-#define channel_AN0_SetHigh()    do { LATA0 = 1; } while(0)
-#define channel_AN0_SetLow()   do { LATA0 = 0; } while(0)
-#define channel_AN0_Toggle()   do { LATA0 = ~LATA0; } while(0)
-#define channel_AN0_GetValue()         RA0
-#define channel_AN0_SetDigitalInput()    do { TRISA0 = 1; } while(0)
-#define channel_AN0_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
+// get/set AN aliases
+#define AN_TRIS               TRISA0
+#define AN_LAT                LATA0
+#define AN_PORT               RA0
+#define AN_ANS                ANSA0
+#define AN_SetHigh()    do { LATA0 = 1; } while(0)
+#define AN_SetLow()   do { LATA0 = 0; } while(0)
+#define AN_Toggle()   do { LATA0 = ~LATA0; } while(0)
+#define AN_GetValue()         RA0
+#define AN_SetDigitalInput()    do { TRISA0 = 1; } while(0)
+#define AN_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
 
-#define channel_AN0_SetAnalogMode()   do { ANSA0 = 1; } while(0)
-#define channel_AN0_SetDigitalMode()   do { ANSA0 = 0; } while(0)
-// get/set channel_AN1 aliases
-#define channel_AN1_TRIS               TRISA1
-#define channel_AN1_LAT                LATA1
-#define channel_AN1_PORT               RA1
-#define channel_AN1_ANS                ANSA1
-#define channel_AN1_SetHigh()    do { LATA1 = 1; } while(0)
-#define channel_AN1_SetLow()   do { LATA1 = 0; } while(0)
-#define channel_AN1_Toggle()   do { LATA1 = ~LATA1; } while(0)
-#define channel_AN1_GetValue()         RA1
-#define channel_AN1_SetDigitalInput()    do { TRISA1 = 1; } while(0)
-#define channel_AN1_SetDigitalOutput()   do { TRISA1 = 0; } while(0)
+#define AN_SetAnalogMode()   do { ANSA0 = 1; } while(0)
+#define AN_SetDigitalMode()   do { ANSA0 = 0; } while(0)
+// get/set IO_RB0 aliases
+#define IO_RB0_TRIS               TRISB0
+#define IO_RB0_LAT                LATB0
+#define IO_RB0_PORT               RB0
+#define IO_RB0_WPU                WPUB0
+#define IO_RB0_SetHigh()    do { LATB0 = 1; } while(0)
+#define IO_RB0_SetLow()   do { LATB0 = 0; } while(0)
+#define IO_RB0_Toggle()   do { LATB0 = ~LATB0; } while(0)
+#define IO_RB0_GetValue()         RB0
+#define IO_RB0_SetDigitalInput()    do { TRISB0 = 1; } while(0)
+#define IO_RB0_SetDigitalOutput()   do { TRISB0 = 0; } while(0)
 
-#define channel_AN1_SetAnalogMode()   do { ANSA1 = 1; } while(0)
-#define channel_AN1_SetDigitalMode()   do { ANSA1 = 0; } while(0)
+#define IO_RB0_SetPullup()    do { WPUB0 = 1; } while(0)
+#define IO_RB0_ResetPullup()   do { WPUB0 = 0; } while(0)
+// get/set IO_RB1 aliases
+#define IO_RB1_TRIS               TRISB1
+#define IO_RB1_LAT                LATB1
+#define IO_RB1_PORT               RB1
+#define IO_RB1_WPU                WPUB1
+#define IO_RB1_ANS                ANSB1
+#define IO_RB1_SetHigh()    do { LATB1 = 1; } while(0)
+#define IO_RB1_SetLow()   do { LATB1 = 0; } while(0)
+#define IO_RB1_Toggle()   do { LATB1 = ~LATB1; } while(0)
+#define IO_RB1_GetValue()         RB1
+#define IO_RB1_SetDigitalInput()    do { TRISB1 = 1; } while(0)
+#define IO_RB1_SetDigitalOutput()   do { TRISB1 = 0; } while(0)
+
+#define IO_RB1_SetPullup()    do { WPUB1 = 1; } while(0)
+#define IO_RB1_ResetPullup()   do { WPUB1 = 0; } while(0)
+#define IO_RB1_SetAnalogMode()   do { ANSB1 = 1; } while(0)
+#define IO_RB1_SetDigitalMode()   do { ANSB1 = 0; } while(0)
+// get/set IO_RB2 aliases
+#define IO_RB2_TRIS               TRISB2
+#define IO_RB2_LAT                LATB2
+#define IO_RB2_PORT               RB2
+#define IO_RB2_WPU                WPUB2
+#define IO_RB2_ANS                ANSB2
+#define IO_RB2_SetHigh()    do { LATB2 = 1; } while(0)
+#define IO_RB2_SetLow()   do { LATB2 = 0; } while(0)
+#define IO_RB2_Toggle()   do { LATB2 = ~LATB2; } while(0)
+#define IO_RB2_GetValue()         RB2
+#define IO_RB2_SetDigitalInput()    do { TRISB2 = 1; } while(0)
+#define IO_RB2_SetDigitalOutput()   do { TRISB2 = 0; } while(0)
+
+#define IO_RB2_SetPullup()    do { WPUB2 = 1; } while(0)
+#define IO_RB2_ResetPullup()   do { WPUB2 = 0; } while(0)
+#define IO_RB2_SetAnalogMode()   do { ANSB2 = 1; } while(0)
+#define IO_RB2_SetDigitalMode()   do { ANSB2 = 0; } while(0)
+// get/set IO_RB3 aliases
+#define IO_RB3_TRIS               TRISB3
+#define IO_RB3_LAT                LATB3
+#define IO_RB3_PORT               RB3
+#define IO_RB3_WPU                WPUB3
+#define IO_RB3_ANS                ANSB3
+#define IO_RB3_SetHigh()    do { LATB3 = 1; } while(0)
+#define IO_RB3_SetLow()   do { LATB3 = 0; } while(0)
+#define IO_RB3_Toggle()   do { LATB3 = ~LATB3; } while(0)
+#define IO_RB3_GetValue()         RB3
+#define IO_RB3_SetDigitalInput()    do { TRISB3 = 1; } while(0)
+#define IO_RB3_SetDigitalOutput()   do { TRISB3 = 0; } while(0)
+
+#define IO_RB3_SetPullup()    do { WPUB3 = 1; } while(0)
+#define IO_RB3_ResetPullup()   do { WPUB3 = 0; } while(0)
+#define IO_RB3_SetAnalogMode()   do { ANSB3 = 1; } while(0)
+#define IO_RB3_SetDigitalMode()   do { ANSB3 = 0; } while(0)
 
 /**
  * @Param
