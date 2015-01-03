@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration device="PIC16F1827" mcc_version="v2.10">
+    <managers>
+        <manager generated="true" name="Pin Manager" reloadPin="manual">
+            <setting name="SS1SEL" option="RB5"/>
+            <setting name="CCP2SEL" option="RB6"/>
+            <setting name="RXDTSEL" option="RB1"/>
+            <setting name="SDO1SEL" option="RB2"/>
+            <setting name="P1DSEL" option="RB7"/>
+            <setting name="CCP1SEL" option="RB3"/>
+            <setting name="P2BSEL" option="RB7"/>
+            <setting name="P1CSEL" option="RB6"/>
+            <setting name="TXCKSEL" option="RB2"/>
+            <setting name="package" option="PDIP18"/>
+            <setting name="sorting" option="true"/>
+            <resource customName="channel_AN0" digital="false" direction="INPUT" function="AN0" module="ADC" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="channel_AN1" digital="false" direction="INPUT" function="AN1" module="ADC" name="RA1" start="false" type="pin" wpu="false"/>
+            <file checksum="1447594021" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="1780843922" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+        </manager>
+        <manager generated="true" name="System" reloadPin="manual">
+            <initializer comment="" name="Initialize">
+                <setting name="SPLLEN" option="disabled" register="OSCCON"/>
+                <setting name="SCS" option="FOSC" register="OSCCON"/>
+                <setting name="IRCF" option="4MHz_HF" register="OSCCON"/>
+                <setting name="OSTS" option="intosc" register="OSCSTAT"/>
+                <setting name="HFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="HFIOFS" option="not0.5percent_acc" register="OSCSTAT"/>
+                <setting name="PLLR" option="disabled" register="OSCSTAT"/>
+                <setting name="MFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="T1OSCR" option="disabled" register="OSCSTAT"/>
+                <setting name="LFIOFR" option="disabled" register="OSCSTAT"/>
+                <setting name="HFIOFL" option="not2percent_acc" register="OSCSTAT"/>
+                <setting name="TUN" option="0x0" register="OSCTUNE"/>
+                <additionalSetting name="pllMultiplier" option=""/>
+                <additionalSetting name="extclk" option="4.0 MHz"/>
+            </initializer>
+            <setting name="IESO" option="ON"/>
+            <setting name="BOREN" option="ON"/>
+            <setting name="PWRTE" option="OFF"/>
+            <setting name="FOSC" option="XT"/>
+            <setting name="FCMEN" option="ON"/>
+            <setting name="MCLRE" option="ON"/>
+            <setting name="CP" option="OFF"/>
+            <setting name="CPD" option="OFF"/>
+            <setting name="WDTE" option="OFF"/>
+            <setting name="CLKOUTEN" option="OFF"/>
+            <setting name="WRT" option="OFF"/>
+            <setting name="LVP" option="OFF"/>
+            <setting name="STVREN" option="ON"/>
+            <setting name="PLLEN" option="OFF"/>
+            <setting name="BORV" option="LO"/>
+            <setting name="generateConfigBits" option="true"/>
+            <file checksum="3200438215" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="1422132352" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+        </manager>
+    </managers>
+    <modules>
+        <module generated="true" mode="ADC" name="ADC" order="0" reloadPin="manual" type="adc_sarcore_10bit">
+            <initializer comment="" name="Initialize">
+                <setting name="GO_nDONE" option="stop" register="ADCON0"/>
+                <setting name="ADON" option="enabled" register="ADCON0"/>
+                <setting name="CHS" option="AN0" register="ADCON0"/>
+                <setting name="ADPREF" option="VDD" register="ADCON1"/>
+                <setting name="ADNREF" option="VSS" register="ADCON1"/>
+                <setting name="ADFM" option="right" register="ADCON1"/>
+                <setting name="ADCS" option="FOSC/4" register="ADCON1"/>
+                <setting name="ADRESL" option="0x0" register="ADRESL"/>
+                <setting name="ADRESH" option="0x0" register="ADRESH"/>
+            </initializer>
+            <setting name="ADI" option="false"/>
+            <resource customName="channel_AN0" function="AN0" name="RA0" type="pin"/>
+            <resource customName="channel_AN1" function="AN1" name="RA1" type="pin"/>
+            <file checksum="1721234122" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
+            <file checksum="1284466382" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+        </module>
+    </modules>
+</configuration>
