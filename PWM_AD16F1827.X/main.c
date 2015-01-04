@@ -52,7 +52,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 void main(void)
 {
     // initialize the device
+    int conversion;
+
     SYSTEM_Initialize();
+    ADC_Initialize();
+    PWM3_Initialize();
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -71,7 +75,8 @@ void main(void)
 
     while (1)
     {
-        // Add your application code
+        conversion = ADC_GetConversion(control);
+        PWM3_LoadDutyValue(conversion);
     }
 }
 /**
