@@ -2811,17 +2811,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 251: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;mcc.h: 68: void SYSTEM_Initialize(void);
 [; ;mcc.h: 81: void OSCILLATOR_Initialize(void);
-"49 main.c
-[v _conversion `i ~T0 @X0 1 e ]
-[; ;main.c: 49: int conversion;
-"53
+"52 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"54
+"53
 {
-[; ;main.c: 53: void main(void)
-[; ;main.c: 54: {
+[; ;main.c: 52: void main(void)
+[; ;main.c: 53: {
 [e :U _main ]
 [f ]
+"54
+[v _conversion `i ~T0 @X0 1 a ]
+[; ;main.c: 54: int conversion;
 [; ;main.c: 56: SYSTEM_Initialize();
 "56
 [e ( _SYSTEM_Initialize ..  ]
@@ -2847,67 +2847,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 79: conversion = ADC_GetConversionResult();
 "79
 [e = _conversion -> ( _ADC_GetConversionResult ..  `i ]
-[; ;main.c: 81: if(conversion < 171){
-"81
+[; ;main.c: 97: if(conversion < 171){
+"97
 [e $ ! < _conversion -> 171 `i 357  ]
 {
-[; ;main.c: 82: PORTB = 0;
-"82
+[; ;main.c: 98: PORTB = 0;
+"98
 [e = _PORTB -> -> 0 `i `uc ]
-"83
+"99
 }
-[; ;main.c: 83: }else if(conversion < 342){
+[; ;main.c: 99: }else if(conversion < 342){
 [e $U 358  ]
 [e :U 357 ]
 [e $ ! < _conversion -> 342 `i 359  ]
 {
-[; ;main.c: 84: PORTB = 1;
-"84
+[; ;main.c: 100: PORTB = 1;
+"100
 [e = _PORTB -> -> 1 `i `uc ]
-"85
+"101
 }
-[; ;main.c: 85: }else if(conversion < 513){
+[; ;main.c: 101: }else if(conversion < 513){
 [e $U 360  ]
 [e :U 359 ]
 [e $ ! < _conversion -> 513 `i 361  ]
 {
-[; ;main.c: 86: PORTB = 2;
-"86
+[; ;main.c: 102: PORTB = 2;
+"102
 [e = _PORTB -> -> 2 `i `uc ]
-"87
+"103
 }
-[; ;main.c: 87: }else if(conversion < 684){
+[; ;main.c: 103: }else if(conversion < 684){
 [e $U 362  ]
 [e :U 361 ]
 [e $ ! < _conversion -> 684 `i 363  ]
 {
-[; ;main.c: 88: PORTB = 3;
-"88
+[; ;main.c: 104: PORTB = 3;
+"104
 [e = _PORTB -> -> 3 `i `uc ]
-"89
+"105
 }
-[; ;main.c: 89: }else if(conversion < 855){
+[; ;main.c: 105: }else if(conversion < 855){
 [e $U 364  ]
 [e :U 363 ]
 [e $ ! < _conversion -> 855 `i 365  ]
 {
-[; ;main.c: 90: PORTB = 4;
-"90
+[; ;main.c: 106: PORTB = 4;
+"106
 [e = _PORTB -> -> 4 `i `uc ]
-"91
+"107
 }
-[; ;main.c: 91: }else if(conversion < 1024){
+[; ;main.c: 107: }else if(conversion < 1024){
 [e $U 366  ]
 [e :U 365 ]
 [e $ ! < _conversion -> 1024 `i 367  ]
 {
-[; ;main.c: 92: PORTB = 5;
-"92
+[; ;main.c: 108: PORTB = 5;
+"108
 [e = _PORTB -> -> 5 `i `uc ]
-"93
+"109
 }
 [e :U 367 ]
-"96
+"110
 [e :U 366 ]
 [e :U 364 ]
 [e :U 362 ]
@@ -2918,9 +2918,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73
 [e $U 352  ]
 [e :U 353 ]
-[; ;main.c: 93: }
-[; ;main.c: 96: }
-[; ;main.c: 97: }
-"97
+[; ;main.c: 109: }
+[; ;main.c: 110: }
+[; ;main.c: 111: }
+"111
 [e :UE 350 ]
 }

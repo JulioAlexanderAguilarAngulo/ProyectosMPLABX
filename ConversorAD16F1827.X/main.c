@@ -46,12 +46,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "mcc_generated_files/mcc.h"
 
-int conversion;
 /*
                          Main application
  */
 void main(void)
 {
+    int conversion;
     // initialize the device
     SYSTEM_Initialize();
 
@@ -78,6 +78,22 @@ void main(void)
         while(!ADC_IsConversionDone());
         conversion = ADC_GetConversionResult();
 
+        // El valor entregado en la variable "conversion" es un entero
+        // entre 0 y 1023, puesto que la conversion es a 10 bits,
+        // Como el voltaje de referencia es la alimentación, es decir,
+        // 5V, por lo tanto para saber a cuantos voltios equivale el valor
+        // en "conversion" se realiza la siguiente operación:
+
+        // 5 (voltaje referencia)/ 1023 (valor maximo a 10 bits) = 0,0049
+
+        // De este modo al leer el valor en la variable "conversion" podremos saber
+        // que voltaje estamos recibiendo por la entrada analoga.
+
+        // En el siguiente codigo se verifica que valor se encuentra en la
+        // entrada AN0 pin 17 del 16F1827 y escribe un dato, en este caso
+        // un numero del 0 al 5 en el puerto B para mostrar en un display
+        // de siete segmentos conectado a un BCD 7448.
+
         if(conversion < 171){
             PORTB = 0;
         }else if(conversion < 342){
@@ -91,8 +107,6 @@ void main(void)
         }else if(conversion < 1024){
             PORTB = 5;
         }
-
-        // Add your application code
     }
 }
 /**

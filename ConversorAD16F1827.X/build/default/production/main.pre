@@ -3841,12 +3841,10 @@ void SYSTEM_Initialize(void);
 # 81
 void OSCILLATOR_Initialize(void);
 
-# 49 "main.c"
-int conversion;
-
-# 53
+# 52 "main.c"
 void main(void)
 {
+int conversion;
 
 SYSTEM_Initialize();
 
@@ -3859,6 +3857,7 @@ ADC_StartConversion(AN);
 while(!ADC_IsConversionDone());
 conversion = ADC_GetConversionResult();
 
+# 97
 if(conversion < 171){
 PORTB = 0;
 }else if(conversion < 342){
@@ -3872,8 +3871,6 @@ PORTB = 4;
 }else if(conversion < 1024){
 PORTB = 5;
 }
-
-
 }
 }
 
