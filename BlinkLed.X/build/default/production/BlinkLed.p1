@@ -2768,75 +2768,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-"11 BlinkLed.c
+"13 BlinkLed.c
 [p x FOSC=XT ]
-"12
-[p x WDTE=OFF ]
-"13
-[p x PWRTE=OFF ]
 "14
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "15
-[p x CP=OFF ]
+[p x PWRTE=OFF ]
 "16
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "17
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "18
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "19
-[p x IESO=ON ]
+[p x BOREN=ON ]
 "20
+[p x CLKOUTEN=OFF ]
+"21
+[p x IESO=ON ]
+"22
 [p x FCMEN=ON ]
-"23
-[p x WRT=OFF ]
-"24
-[p x PLLEN=OFF ]
 "25
-[p x STVREN=ON ]
+[p x WRT=OFF ]
 "26
-[p x BORV=LO ]
+[p x PLLEN=OFF ]
 "27
+[p x STVREN=ON ]
+"28
+[p x BORV=LO ]
+"29
 [p x LVP=OFF ]
-"31
+"33
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;BlinkLed.c: 31: void main(){
+[; ;BlinkLed.c: 33: void main(){
 [e :U _main ]
 [f ]
-[; ;BlinkLed.c: 32: TRISA = 0;
-"32
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;BlinkLed.c: 33: ANSELA = 0;
-"33
-[e = _ANSELA -> -> 0 `i `uc ]
-[; ;BlinkLed.c: 34: PORTA = 0;
+[; ;BlinkLed.c: 34: TRISA = 0;
 "34
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;BlinkLed.c: 36: while(1){
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;BlinkLed.c: 35: ANSELA = 0;
+"35
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;BlinkLed.c: 36: PORTA = 0;
 "36
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;BlinkLed.c: 38: while(1){
+"38
 [e :U 352 ]
 {
-[; ;BlinkLed.c: 37: PORTAbits.RA0 = 1;
-"37
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-[; ;BlinkLed.c: 38: _delay((unsigned long)((500)*(4000000/4000.0)));
-"38
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;BlinkLed.c: 39: PORTAbits.RA0 = 0;
+[; ;BlinkLed.c: 39: PORTAbits.RA0 = 1;
 "39
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [; ;BlinkLed.c: 40: _delay((unsigned long)((500)*(4000000/4000.0)));
 "40
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;BlinkLed.c: 41: PORTAbits.RA0 = 0;
 "41
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[; ;BlinkLed.c: 42: _delay((unsigned long)((500)*(4000000/4000.0)));
+"42
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"43
 }
 [e :U 351 ]
-"36
+"38
 [e $U 352  ]
 [e :U 353 ]
-[; ;BlinkLed.c: 41: }
-[; ;BlinkLed.c: 42: }
-"42
+[; ;BlinkLed.c: 43: }
+[; ;BlinkLed.c: 44: }
+"44
 [e :UE 350 ]
 }

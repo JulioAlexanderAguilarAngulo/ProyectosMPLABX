@@ -1,18 +1,20 @@
-// PIC16F1827 Configuration Bit Settings
+///////////////////////////////////////////////////////////////////////////////
+// Programa para el pic 16F1827 que enciende y apaga un Led conectado al pin //
+// RA0 (pata 17), la velocidad del cristal de cuarzo esta configurada a 4MHz //
+///////////////////////////////////////////////////////////////////////////////
 
 // 'C' source line config statements
 
 #include <xc.h>
 
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
+// Bits de configuración
 
 // CONFIG1
-#pragma config FOSC = XT        // Oscillator Selection (XT Oscillator, Crystal/resonator connected between OSC1 and OSC2 pins)
-#pragma config WDTE = OFF       // Watchdog Timer Enable (WDT disabled)
-#pragma config PWRTE = OFF      // Power-up Timer Enable (PWRT disabled)
-#pragma config MCLRE = ON       // MCLR Pin Function Select (MCLR/VPP pin function is MCLR)
-#pragma config CP = OFF         // Flash Program Memory Code Protection (Program memory code protection is disabled)
+#pragma config FOSC = XT        // Oscilador con cristal de cuarzo de 4MHz conectado en los pines 15 y 16
+#pragma config WDTE = OFF       // Perro guardian (WDT deshabilidado)
+#pragma config PWRTE = OFF      // Power-up Timer Enable (PWRT deshabilidado)
+#pragma config MCLRE = ON       // Master clear habilitado (pin reset)
+#pragma config CP = OFF         // Protección contra lectura de código
 #pragma config CPD = OFF        // Data Memory Code Protection (Data memory code protection is disabled)
 #pragma config BOREN = ON       // Brown-out Reset Enable (Brown-out Reset enabled)
 #pragma config CLKOUTEN = OFF   // Clock Out Enable (CLKOUT function is disabled. I/O or oscillator function on the CLKOUT pin)
@@ -26,17 +28,17 @@
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 4000000      // Oscilador a 4MHz
 
 void main(){
-    TRISA = 0;
-    ANSELA = 0;
-    PORTA = 0;
+    TRISA = 0;                  // Puerto A como salida
+    ANSELA = 0;                 // Puerto A Digital
+    PORTA = 0;                  // Inicializa el Puerto A en 0
 
-    while(1){
-        PORTAbits.RA0 = 1;
-        __delay_ms(500);
-        PORTAbits.RA0 = 0;
-        __delay_ms(500);
+    while(1){                   // Programa que se ejecura continuamente
+        PORTAbits.RA0 = 1;      // Bit 0 del puerto A en uno, enciende el Led
+        __delay_ms(500);        // Retardo de 500 milisegundos (1/2 segundo)
+        PORTAbits.RA0 = 0;      // Bit 0 del puerto A en cero, apaga el Led
+        __delay_ms(500);        // Retardo de 500 milisegundos (1/2 segundo)
     }
 }

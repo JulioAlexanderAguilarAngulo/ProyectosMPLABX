@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Tue Jan  6 19:44:52 2015
+                                                                                               Tue Jan  6 20:54:39 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	16F1827
@@ -186,7 +186,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    180 ;;
    181 ;; *************** function _main *****************
    182 ;; Defined at:
-   183 ;;		line 31 in file "BlinkLed.c"
+   183 ;;		line 33 in file "BlinkLed.c"
    184 ;; Parameters:    Size  Location     Type
    185 ;;		None
    186 ;; Auto vars:     Size  Location     Type
@@ -213,29 +213,29 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    207 ;;
    208  07D7                     _main:	
    209                           
-   210                           ;BlinkLed.c: 32: TRISA = 0;
+   210                           ;BlinkLed.c: 34: TRISA = 0;
    211                           
    212                           ;incstack = 0
    213                           ; Regs used in _main: [wreg+status,2]
    214  07D7  0021               	movlb	1	; select bank1
    215  07D8  018C               	clrf	12	;volatile
    216                           
-   217                           ;BlinkLed.c: 33: ANSELA = 0;
+   217                           ;BlinkLed.c: 35: ANSELA = 0;
    218  07D9  0023               	movlb	3	; select bank3
    219  07DA  018C               	clrf	12	;volatile
    220                           
-   221                           ;BlinkLed.c: 34: PORTA = 0;
+   221                           ;BlinkLed.c: 36: PORTA = 0;
    222  07DB  0020               	movlb	0	; select bank0
    223  07DC  018C               	clrf	12	;volatile
    224  07DD                     l475:	
-   225                           ;BlinkLed.c: 36: while(1){
+   225                           ;BlinkLed.c: 38: while(1){
    226                           
    227                           
-   228                           ;BlinkLed.c: 37: PORTAbits.RA0 = 1;
+   228                           ;BlinkLed.c: 39: PORTAbits.RA0 = 1;
    229  07DD  0020               	movlb	0	; select bank0
    230  07DE  140C               	bsf	12,0	;volatile
    231                           
-   232                           ;BlinkLed.c: 38: _delay((unsigned long)((500)*(4000000/4000.0)));
+   232                           ;BlinkLed.c: 40: _delay((unsigned long)((500)*(4000000/4000.0)));
    233  07DF  3003               	movlw	3
    234  07E0  00F2               	movwf	??_main+2
    235  07E1  308A               	movlw	138
@@ -251,11 +251,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    245  07EA  2FE5               	goto	u17
    246  07EB  3200               	nop2
    247                           
-   248                           ;BlinkLed.c: 39: PORTAbits.RA0 = 0;
+   248                           ;BlinkLed.c: 41: PORTAbits.RA0 = 0;
    249  07EC  0020               	movlb	0	; select bank0
    250  07ED  100C               	bcf	12,0	;volatile
    251                           
-   252                           ;BlinkLed.c: 40: _delay((unsigned long)((500)*(4000000/4000.0)));
+   252                           ;BlinkLed.c: 42: _delay((unsigned long)((500)*(4000000/4000.0)));
    253  07EE  3003               	movlw	3
    254  07EF  00F2               	movwf	??_main+2
    255  07F0  308A               	movlw	138
@@ -464,7 +464,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Tue Jan  6 19:44:52 2015
+Symbol Table                                                                                   Tue Jan  6 20:54:39 2015
 
             __CFG_CP$OFF 0000                       u17 07E5                       u27 07F4  
                     l475 07DD             __CFG_CPD$OFF 0000             __CFG_BORV$LO 0000  
