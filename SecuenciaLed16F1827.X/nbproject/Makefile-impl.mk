@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BlinkLed.X
+PROJECTNAME=SecuenciaLed16F1827.X
 
 # Active Configuration
 DEFAULTCONF=default
