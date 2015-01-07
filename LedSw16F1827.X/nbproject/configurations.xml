@@ -4,13 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="mcc_generated_files"
-                     displayName="MCC Generated Files"
-                     projectFiles="true">
-        <itemPath>mcc_generated_files/pin_manager.h</itemPath>
-        <itemPath>mcc_generated_files/mcc.h</itemPath>
-        <itemPath>mcc_generated_files/adc.h</itemPath>
-      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,25 +12,14 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="mcc_generated_files"
-                     displayName="MCC Generated Files"
-                     projectFiles="true">
-        <itemPath>mcc_generated_files/pin_manager.c</itemPath>
-        <itemPath>mcc_generated_files/mcc.c</itemPath>
-        <itemPath>mcc_generated_files/adc.c</itemPath>
-      </logicalFolder>
-      <itemPath>main.c</itemPath>
+      <itemPath>LedSw16F1827.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>device_config.mcc</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>mcc_generated_files</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -46,7 +28,7 @@
         <targetDevice>PIC16F1827</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.33</languageToolchainVersion>
         <platform>2</platform>
@@ -137,6 +119,8 @@
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
+      <PICkit3PlatformTool>
+      </PICkit3PlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="output-file-format" value="-mcof,+elf"/>
