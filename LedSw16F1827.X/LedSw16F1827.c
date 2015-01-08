@@ -29,8 +29,8 @@
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 #define _XTAL_FREQ 4000000      // Oscilador a 4MHz
-#define switch RA0
-#define led RB0
+#define switch RA0              // Nombro RA0 como switch
+#define led RB0                 // Nombro RB0 como led
 
 void main(){
     TRISA = 255;
@@ -46,7 +46,8 @@ void main(){
                                 // se genere ruido que el micro pueda interpretar
                                 // como varios pulsos
             }                   // este ciclo durara hasta que se suelte el boton
-            led = !led;
+            led = !led;         // cambio el estado en led, si esta encendido lo apago
+                                // y si esta apagado lo enciendo
 
         }
     }
