@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Programa para el pic 16F1827 que enciende y apaga un Led conectado al pin //
-// RA0 (pata 17), la velocidad del cristal de cuarzo esta configurada a 4MHz //
+// RA0 (pata 17).                                                            //
 ///////////////////////////////////////////////////////////////////////////////
 
 // 'C' source line config statements
