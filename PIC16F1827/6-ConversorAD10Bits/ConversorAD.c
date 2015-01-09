@@ -1,21 +1,21 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Programa para el pic 16F1827 que convierte la señal Analoga presente en   //
-// el canal AN0 (pata 17) y según su valor muestra un numero del 0 al 5 en   //
-// un display de siete segmentos, la conversión es realizada a 10 bits       //
+// Programa para el pic 16F1827 que convierte la seÃ±al Analoga presente en   //
+// el canal AN0 (pata 17) y segÃºn su valor muestra un numero del 0 al 5 en   //
+// un display de siete segmentos, la conversiÃ³n es realizada a 10 bits       //
 ///////////////////////////////////////////////////////////////////////////////
 
 // 'C' source line config statements
 
 #include <xc.h>
 
-// Bits de configuración
+// Bits de configuraciÃ³n
 
 // CONFIG1
 #pragma config FOSC = XT        // Oscilador con cristal de cuarzo de 4MHz conectado en los pines 15 y 16
 #pragma config WDTE = OFF       // Perro guardian (WDT deshabilidado)
 #pragma config PWRTE = OFF      // Power-up Timer Enable (PWRT deshabilidado)
 #pragma config MCLRE = ON       // Master clear habilitado (pin reset)
-#pragma config CP = OFF         // Protección contra lectura de código
+#pragma config CP = OFF         // ProtecciÃ³n contra lectura de cÃ³digo
 #pragma config CPD = OFF        // Data Memory Code Protection (Data memory code protection is disabled)
 #pragma config BOREN = ON       // Brown-out Reset Enable (Brown-out Reset enabled)
 #pragma config CLKOUTEN = OFF   // Clock Out Enable (CLKOUT function is disabled. I/O or oscillator function on the CLKOUT pin)
@@ -33,46 +33,50 @@
 
 void main(){
 
-    // Configuración de entradas y salidas
+    // ConfiguraciÃ³n de entradas y salidas
 
     TRISA = 255;                // Puerto A como entradas
-    ANSELA = 0x1F;              // Puerto A como Analogo
+    ANSELA = 0x1F;              // Puerto A como Analogo (ADC on comparadores off)
     TRISB = 0;                  // Puerto B como salida
     ANSELB = 0;                 // Puerto B como Digital
+    LATB=0;
+    // ConfiguraciÃ³n del conversor Analogo/Digital
 
-    // Configuración del conversor Analogo/Digital
-
-    ADCON0 = 1;                 // Habilito la conversión Analogo/Digital y
+    ADCON0 = 1;                 // Habilito la conversiÃ³n Analogo/Digital y
                                 // selecciono el canal AN0
-    ADCON1 = 192;               // Alineo el resultado de la conversión a la derecha,
+    ADCON1 = 192;               // Alineo el resultado de la conversiÃ³n a la derecha,
                                 // Fosc/8
-                                // Selecciono como voltaje de referencia la alimentación 5VDC del micro
-    ADRESL = 0;                 // Limpio ADRESL
+                                // Selecciono como voltaje de referencia la alimentaciÃ³n 5VDC del micro
+                                
+/*    ADRESL = 0;                 // Limpio ADRESL
     ADRESH = 0;                 // Limpio ADRESH
+*/
 
-    int conversion = 0;         // Aquí se almacenara el resulatado de la conversión AD
+    int conversion = 0;         // AquÃ­ se almacenara el resulatado de la conversiÃ³n AD
 
     while(1){                   // Programa que se ejecura continuamente
 
         ADCON0bits.CHS = 0;             // Selecciono el canal AN0
-        ADCON0bits.ADON = 1;            // Habilito la conversión AD
-        __delay_ms(5);                  // Doy un retardo para la adquisición del dato
-        ADCON0bits.GO_nDONE = 1;        // Inicio el proceso de conversión AD
+        ADCON0bits.ADON = 1;            // Habilito la conversiÃ³n AD
+        __delay_ms(5);                  // Doy un retardo para la adquisiciÃ³n del dato
+                                        // necesario si Tad = frc?         
+        ADCON0bits.GO_nDONE = 1;        // Inicio el proceso de conversiÃ³n AD
                                         // este cambiara a 0 automaticamente cuando
                                         // la conversion termine
 
         while(ADCON0bits.GO_nDONE){     // Espera a que la conversion termine
-            continue;
+            continue;                   // correcto pero no necesaria esta linea, vacio igual funciona
         }
         
         conversion = ((ADRESH << 8) + ADRESL); // Paso el valor del resulado en ADRESH y ADRESL
                                                // a la variable conversion
+                                               
         
         // El valor entregado en la variable "conversion" es un entero
         // entre 0 y 1023, puesto que la conversion es a 10 bits,
-        // Como el voltaje de referencia es la alimentación, es decir,
+        // Como el voltaje de referencia es la alimentaciÃ³n, es decir,
         // 5V, para saber a cuantos voltios equivale el valor
-        // en "conversion" se realiza la siguiente operación:
+        // en "conversion" se realiza la siguiente operaciÃ³n:
 
         // 5 (voltaje referencia)/ 1023 (valor maximo a 10 bits) = 0,0049
 
@@ -83,7 +87,19 @@ void main(){
         // entrada AN0 pin 17 del 16F1827 y escribe un dato, en este caso
         // un numero del 0 al 5 en el puerto B para mostrar en un display
         // de siete segmentos conectado a un BCD 7448.
+        
+        
+// visto todo lo que se pierde al hacer el calculo *5/1023 en precision aritmetica, 
+// y que electricamente 4.9mV esta casi cerca de tu umbral de ruido, seria mas simple utilizar
+ 
+char tmp;
+tmp=conversion>>7; // division entre 2^7 por corrimiento, nos deja un rango de 0-7
+tmp=tmp*5;         // conversion *5/7 
+tmp/=>7;           // ( menos rango=menos tiempo en los bucles aritmeticos = mas rapidez)
 
+LATB=tmp;
+
+/* 
         if(conversion < 171){
             PORTB = 0;
         }else if(conversion < 342){
@@ -97,7 +113,7 @@ void main(){
         }else if(conversion < 1024){
             PORTB = 5;
         }
-
+*/
     }
 }
 
